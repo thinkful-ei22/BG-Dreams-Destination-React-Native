@@ -6,19 +6,19 @@ class List extends Component {
     names: [
       {
         id: 0,
-        name: 'Ben'
+        button: 'Home'
       },
       {
         id: 1,
-        name: 'John'
+        button: 'Find Your Dreams Destination'
       },
       {
         id: 2,
-        name: 'Susan'
+        button: 'View Booked Destinations'
       },
       {
         id: 3,
-        name: 'Felicia'
+        button: 'FAQ & Contact'
       }
     ]
   }
@@ -36,7 +36,7 @@ class List extends Component {
             onPress = {() => this.alertItemName(item)}>
             
             <Text style = {styles.text}>
-            {item.name}
+            {item.button}
             </Text>
             </TouchableOpacity>
           ))

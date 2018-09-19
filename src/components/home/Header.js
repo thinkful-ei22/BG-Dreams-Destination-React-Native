@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Text, View, StyleSheet } from 'react-native'
 
-const PresentationalComponent = (props) => {
+const Header = (props) => {
    return (
       <View>
          <Text style = {styles.header}>
@@ -13,7 +13,7 @@ const PresentationalComponent = (props) => {
       </View>
    )
 }
-export default PresentationalComponent
+export default Header
 
 const styles = StyleSheet.create({
   header: {
@@ -28,6 +28,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: 'blue',
     fontWeight: 'bold',
-    fontSize: 20
+    fontSize: 20,
+    marginBottom: 20
   }
 })
