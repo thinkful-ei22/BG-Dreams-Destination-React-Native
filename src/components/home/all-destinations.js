@@ -192,11 +192,11 @@ searchDestinations = (input) => {
   filteredDestinations = this.destinations
 
   if (input !== ''){
-  let filteredCityDestinations= this.destinations.filter(destination => destination.city.startsWith(input))
+  let filteredCityDestinations= this.destinations.filter(destination => destination.city.toLowerCase().startsWith(input.toLowerCase()))
 
-  let filteredStateDestinations= this.destinations.filter(destination => destination.fullState.startsWith(input))
+  let filteredStateDestinations= this.destinations.filter(destination => destination.fullState.toLowerCase().startsWith(input.toLowerCase()))
 
-  let filteredCountryDestinations= this.destinations.filter(destination => destination.country.startsWith(input))
+  let filteredCountryDestinations= this.destinations.filter(destination => destination.country.toLowerCase().startsWith(input.toLowerCase()))
 
 
 
@@ -243,8 +243,8 @@ return (
 <Header/>
 <Navigation />
   <View style = {styles.containerMain}>
-  <Text>
-    Search 
+  <Text style = {styles.searchTitle}>
+   Destination Search 
   </Text>
   <TextInput style = {styles.input}
   underlineColorAndroid = "transparent"
@@ -285,6 +285,13 @@ const styles = StyleSheet.create ({
     fontWeight: 'bold',
     fontSize: 20
   },
+  searchTitle:{
+    textAlign: 'center',
+    fontWeight: 'bold',
+top: 15,
+marginBottom: 5
+  },
+
   input: {
     margin: 15,
     height: 40,

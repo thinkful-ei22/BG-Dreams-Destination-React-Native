@@ -5,9 +5,6 @@ import Routes from './src/components/home/Routes.js'
 class reactTutorialApp extends Component {
    render() {
       return (
-        //  <View>
-        //     <Home />
-        //  </View>
 <Routes />
       );
    }

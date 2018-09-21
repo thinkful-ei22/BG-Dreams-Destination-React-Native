@@ -1,33 +1,95 @@
 import React, { Component } from 'react'
-import { View, Text, TouchableOpacity, TextInput, StyleSheet } from 'react-native'
+import { View, ScrollView, Text, TouchableOpacity, TextInput, StyleSheet } from 'react-native'
+import Header from './Header'
 
-const SignUp = (props) => {
-  // constructor(props){
-  // state = {
-  //  
-  // }
- 
+class SignUp extends Component {
+  state = {
+    firstName: '',
+    lastName: '',
+    userName: '',
+    email: '',
+    password:'',
+    confirmPass: '',
+    footer: '',
+    loggedIn: true
+ }
+
+ goToHome = () => {
+  Actions.home()
+}
+
+ handleFirstName = (text) => {
   
-  // login = (firstName, lastName, pass, confirmPass) => {
+  this.setState({ firstName: text}, function(){
+  })
 
-  //   if (pass !== confirmPass){
-  //     alert ('Passwords do not match!')
-  //   }
-  //   else {
-  //     alert ('Sign up successful. Welcome to the Destination of your Dreams ' + firstName + ' ' + lastName )
+}
+handleLastName = (text) => {
+    this.setState({ lastName: text})
+  }
+  handleUserName = (text) => {
+    this.setState({ userName: text})
+  }
+  handleEmail = (text) => {
+    this.setState({ email: text})
+  }
+  handlePassword = (text) => {
+    this.setState({ password: text})
+  }
+  handleConfirmPassword = (text) => {
+    this.setState({ confirmPass: text})
+  }
+logIn = () => {
 
-  //   }
-  // }
-  
-    return (
-      <View style = {styles.container}>
+  const re = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/
 
+  if (this.state.firstName === ''){
+    alert ('First name is required')
+  }
+  else if (this.state.lastName === ''){
+    alert ('Last name is required')
+  }  
+  else if (this.state.userName === ''){
+    alert ('User name is required')
+  } 
+  else if (this.state.email === ''){
+    alert ('Email is required')
+  } 
+  else if (!re.test(this.state.email)){
+    alert ('Email is not valid')
+  } 
+  else if (this.state.password === ''){
+    alert ('Password is required')
+  } 
+  else if (/\d/.test(this.state.password) === false){
+    alert ('Password must contain a number')
+  }
+  else if (this.state.password.length < 7){
+    alert ('Password is must have 7 characters or more')
+  } 
+  else if (this.state.password !== this.state.confirmPass){
+    alert ('Passwords must match')
+  } 
+  else {
+  this.setState({ 
+    loggedIn: true,
+    footer: 'Logged in as: ' + this.state.firstName + ' ' + this.state.lastName
+  }, function () {
+    goToHome()
+  })
+}
+}
+
+render (){
+return (
+      <ScrollView style = {styles.container}>
+ <Header />
       <TextInput style = {styles.input}
       underlineColorAndroid = "transparent"
       placeholder = "First Name"
       placeholderTextColor = "#9a73ef"
       autoCapitalize = "none"
-      onChangeText = {props.handleFirstName} 
+      onChangeText = {this.handleFirstName} 
       
       />
 
@@ -36,21 +98,21 @@ const SignUp = (props) => {
       placeholder = "Last Name"
       placeholderTextColor = "#9a73ef"
       autoCapitalize = "none"
-      onChangeText = {props.handleLastName} />
+      onChangeText = {this.handleLastName} />
 
        <TextInput style = {styles.input}
       underlineColorAndroid = "transparent"
       placeholder = "User Name"
       placeholderTextColor = "#9a73ef"
       autoCapitalize = "none"
-      onChangeText = {props.handleUserName} />
+      onChangeText = {this.handleUserName} />
 
       <TextInput style = {styles.input}
       underlineColorAndroid = "transparent"
       placeholder = "Email"
       placeholderTextColor = "#9a73ef"
       autoCapitalize = "none"
-      onChangeText = {props.handleEmail} />
+      onChangeText = {this.handleEmail} />
 
       <TextInput style = {styles.input}
                secureTextEntry={true}
@@ -58,7 +120,7 @@ const SignUp = (props) => {
                placeholder = "Password (Min. 1 number, 7 characters)"
                placeholderTextColor = "#9a73ef"
                autoCapitalize = "none"
-               onChangeText = {props.handlePassword}/>
+               onChangeText = {this.handlePassword}/>
 
 <TextInput style = {styles.input}
                secureTextEntry={true}
@@ -66,22 +128,24 @@ const SignUp = (props) => {
                placeholder = "Confirm Password"
                placeholderTextColor = "#9a73ef"
                autoCapitalize = "none"
-               onChangeText = {props.handleConfirmPassword}/>
+               onChangeText = {this.handleConfirmPassword}/>
 
 
                <TouchableOpacity
                style = {styles.submitButton}
-               onPress = {props.logIn}>
+               onPress = {this.logIn}>
                <Text style = {styles.submitButtonText}> Submit </Text>
             </TouchableOpacity>
-      </View>
+      </ScrollView>
     )
   }
+}
 export default SignUp
 
 const styles = StyleSheet.create({
   container: {
-     paddingTop: 23
+     paddingTop: 23,
+     height: 1000
   },
   input: {
      margin: 15,

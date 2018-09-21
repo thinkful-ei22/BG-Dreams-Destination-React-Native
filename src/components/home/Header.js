@@ -1,15 +1,41 @@
 import React, { Component } from 'react'
-import { Text, View, StyleSheet } from 'react-native'
+import { Text, View, TouchableOpacity, StyleSheet } from 'react-native'
+import { Actions } from 'react-native-router-flux';
 
 const Header = (props) => {
+  goToSignUp = () => {
+    Actions.signUp()
+  }
+  goToLogIn = () => {
+    Actions.logIn()
+  }
    return (
       <View style = {styles.container}>
          <Text style = {styles.header}>
          Welcome to Dreams Destination!         
          </Text>
+         <TouchableOpacity
+            style = {styles.signUpContainer}
+            onPress = {goToSignUp}>
+{/*             
+            <Text style = {styles.text}>
+            Sign Up
+            </Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity
+            style = {styles.signUpContainer}
+            onPress = {goToSignUp}>
+            
+            <Text style = {styles.text}>
+            Log In
+            </Text> */}
+            </TouchableOpacity>
+
          <Text style = {styles.subHeader}>
          Find the Destination of your Dreams!
          </Text> 
+         
       </View>
    )
 }

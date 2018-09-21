@@ -1,7 +1,5 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { Text, View, TouchableOpacity, StyleSheet } from 'react-native'
-import { Router, Scene } from 'react-native-router-flux'
-import Home from './Home.js'
 import { Actions } from 'react-native-router-flux';
 
 const Navigation = () => {
@@ -18,6 +16,7 @@ const Navigation = () => {
   goToAllEvents = () => {
     Actions.events()
   }
+  
 
     return (
       <View>
@@ -47,6 +46,8 @@ const Navigation = () => {
             View Our Dream Events
             </Text>
             </TouchableOpacity>
+
+           
       </View>
     )
     }
