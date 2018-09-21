@@ -102,7 +102,7 @@ let featuredEvent =
 <View style = {styles.button}>
 <Button  onPress = {handlePress}
     title = "BOOK NOW"
-    color = "green"
+    color = "#FEFFFE"
  />
  </View>
 </View>
@@ -133,16 +133,19 @@ const styles = StyleSheet.create ({
     flexDirection: 'column',
       justifyContent: 'flex-start',
       alignItems: 'center',
+      backgroundColor: '#DAD2D8'
   },
   header: {
     marginTop: 20,
     textAlign: 'center',
-    color: 'blue',
+    color: '#90708C',
     fontWeight: 'bold',
     fontSize: 20
   },
   eventContainer: {
-    marginTop: 20
+    marginTop: 20,
+    backgroundColor: '#FEFFFE'
+
   },
   eventImage:{
     width: 350, 
@@ -150,11 +153,11 @@ const styles = StyleSheet.create ({
   },
   eventDescription: {
     borderLeftWidth: 1,
-    borderLeftColor: 'grey',
+    borderLeftColor: '#90708C',
     borderBottomWidth: 1,
-    borderBottomColor: 'grey',
+    borderBottomColor: '#90708C',
     borderRightWidth: 1,
-    borderRightColor: 'grey',
+    borderRightColor: '#90708C',
     width: 350
   },
   packageHeader: {
@@ -198,19 +201,14 @@ const styles = StyleSheet.create ({
     fontSize: 20,
     marginTop: 20
   },
-  button: {
-  borderWidth: 1,
-  borderColor: 'black',
-  width: 150,
-  left: 110,
-  bottom: 45
-  },
   stopInfo: {
     marginLeft: 45
   },
   button: {
     borderWidth: 1,
-    borderColor: 'black',
+    borderColor: '#DAD2D8',
+    backgroundColor: '#233D4D',
+    borderRadius: 10,
     width: 150,
     left: 100,
     marginTop: 10,

@@ -43,20 +43,19 @@ export default Header
 
 const styles = StyleSheet.create({
   container:{
-    borderBottomWidth: 1,
-    borderBottomColor: '#f4c842'
+   backgroundColor: '#DAD2D8'
   },
   header: {
     marginTop: 20,
     textAlign: 'center',
-    color: 'blue',
+    color: '#49306B',
     fontWeight: 'bold',
     fontSize: 20
   },
   subHeader: {
     marginTop: 20,
     textAlign: 'center',
-    color: 'blue',
+    color: '#90708C',
     fontWeight: 'bold',
     fontSize: 20,
     marginBottom: 20

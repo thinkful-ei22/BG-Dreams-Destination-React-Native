@@ -11,7 +11,6 @@ const Routes = () => (
          <Scene key = "allDestinations" component = {AllDestinations} title = "View All Destinations" />
          <Scene key = "signUp" component = {SignUp} title = "Sign Up" />
          <Scene key = "logIn" component = {SignUp} title = "Log In" />
-
          <Scene key = "events" component = {Events} title = "Events" />
       </Scene>
    </Router>

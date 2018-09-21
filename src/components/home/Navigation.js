@@ -19,11 +19,11 @@ const Navigation = () => {
   
 
     return (
-      <View>
+      <View style = {styles.container}>
         
           
             <TouchableOpacity
-            style = {styles.container}
+            style = {styles.button}
             onPress = {goToHome}>
             
             <Text style = {styles.text}>
@@ -31,7 +31,7 @@ const Navigation = () => {
             </Text>
             </TouchableOpacity>
             <TouchableOpacity
-            style = {styles.container}
+            style = {styles.button}
             onPress = {goToAllDestinations}>
             
             <Text style = {styles.text}>
@@ -39,7 +39,7 @@ const Navigation = () => {
             </Text>
             </TouchableOpacity>
             <TouchableOpacity
-            style = {styles.container}
+            style = {styles.button}
             onPress = {goToAllEvents}>
             
             <Text style = {styles.text}>
@@ -54,13 +54,16 @@ const Navigation = () => {
 export default Navigation
 
 const styles = StyleSheet.create ({
-  container : {
+  container: {
+    backgroundColor: '#DAD2D8'
+  },
+  button : {
     padding: 10,
     marginTop: 3,
-    backgroundColor: '#d9f9b1',
+    backgroundColor: '#233D4D',
     alignItems: 'center',
   },
   text: {
-    color: '#4f603c'
+    color: '#FEFFFE'
   }
 })

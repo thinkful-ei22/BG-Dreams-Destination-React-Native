@@ -31,7 +31,7 @@ class Home extends Component {
   }
       render(){
   return (
-    <ScrollView>
+    <ScrollView style = {styles.home}>
         <Header />
       <Navigation />
       <FeaturedEvent />
@@ -43,6 +43,12 @@ class Home extends Component {
 }
 
 export default Home
+
+const styles = StyleSheet.create({
+  home: {
+    backgroundColor: '#DAD2D8'
+  }
+})
 
 
 

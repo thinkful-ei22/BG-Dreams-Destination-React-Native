@@ -209,7 +209,7 @@ let firstDestination =
   <View style = {styles.button}>
   <Button  onPress = {handlePress}
          title = "FIND FLIGHTS"
-         color = "green"
+         color = "#FEFFFE"
       />
       </View>
   </View>
@@ -237,7 +237,7 @@ let secondDestination =
   <View style = {styles.button}>
   <Button  onPress = {handlePress}
          title = "FIND FLIGHTS"
-         color = "green"
+         color = "#FEFFFE"
       />
       </View>
   </View>
@@ -265,7 +265,7 @@ let thirdDestination =
   <View style = {styles.button}>
   <Button  onPress = {handlePress}
          title = "FIND FLIGHTS"
-         color = "green"
+         color = "#FEFFFE"
       />
       </View>
   </View>
@@ -283,7 +283,6 @@ Popular Destinations
 </Text>
 
 {displayFeatured()}
-
 </View>
 </View>
 )
@@ -297,17 +296,20 @@ const styles = StyleSheet.create ({
     flexDirection: 'column',
       justifyContent: 'flex-start',
       alignItems: 'center',
-      height: 1300,
+      height: 1200,
+      backgroundColor: '#DAD2D8'
   },
   header: {
     marginTop: 20,
     textAlign: 'center',
-    color: 'blue',
+    color: '#90708C',
     fontWeight: 'bold',
     fontSize: 20
   },
   destinationContainer: {
-    marginTop: 10
+    marginTop: 10,
+    backgroundColor: '#FEFFFE'
+
   },
   destinationImage :{
     width: 275, 
@@ -315,11 +317,11 @@ const styles = StyleSheet.create ({
   },
   tripDescription: {
     borderLeftWidth: 1,
-    borderLeftColor: 'grey',
+    borderLeftColor: '#90708C',
     borderBottomWidth: 1,
-    borderBottomColor: 'grey',
+    borderBottomColor: '#90708C',
     borderRightWidth: 1,
-    borderRightColor: 'grey'
+    borderRightColor: '#90708C'
   },
   descriptionHeader: {
     fontWeight: 'bold',
@@ -337,7 +339,9 @@ const styles = StyleSheet.create ({
   },
   button: {
   borderWidth: 1,
-  borderColor: 'black',
+  borderColor: '#DAD2D8',
+  backgroundColor: '#233D4D',
+  borderRadius: 10,
   width: 150,
   left: 110,
   bottom: 45

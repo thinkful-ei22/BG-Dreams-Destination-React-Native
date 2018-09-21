@@ -231,7 +231,7 @@ render(){
       <View style = {styles.button}>
       <Button  onPress = {this.handlePress}
              title = "FIND FLIGHTS"
-             color = "green"
+             color = "#FEFFFE"
           />
           </View>
     </View>
@@ -249,7 +249,7 @@ return (
   <TextInput style = {styles.input}
   underlineColorAndroid = "transparent"
   placeholder = "Search by city, state, or country"
-  placeholderTextColor = "#9a73ef"
+  placeholderTextColor = "#49306B"
   autoCapitalize = "none"
   onChangeText = {(text) => {
     console.log(text + ' <<<text')
@@ -277,11 +277,12 @@ const styles = StyleSheet.create ({
       justifyContent: 'flex-start',
       alignItems: 'center',
       height: 3300,
+      backgroundColor: '#DAD2D8'
   },
   header: {
     marginTop: 20,
     textAlign: 'center',
-    color: 'blue',
+    color: '#90708C',
     fontWeight: 'bold',
     fontSize: 20
   },
@@ -289,18 +290,22 @@ const styles = StyleSheet.create ({
     textAlign: 'center',
     fontWeight: 'bold',
 top: 15,
-marginBottom: 5
+marginBottom: 5,
+color: '#90708C'
   },
 
   input: {
     margin: 15,
     height: 40,
-    borderColor: '#7a42f4',
+    borderColor: '#90708C',
     borderWidth: 1,
+    backgroundColor: '#FEFFFE',
     width: 300
  },
   countryContainer: {
-    marginTop: 10
+    marginTop: 10,
+    backgroundColor: '#FEFFFE'
+
   },
   tripImage:{
     width: 275, 
@@ -308,11 +313,11 @@ marginBottom: 5
   },
   tripDescription: {
     borderLeftWidth: 1,
-    borderLeftColor: 'grey',
+    borderLeftColor: '#90708C',
     borderBottomWidth: 1,
-    borderBottomColor: 'grey',
+    borderBottomColor: '#90708C',
     borderRightWidth: 1,
-    borderRightColor: 'grey'
+    borderRightColor: '#90708C'
   },
   descriptionHeader: {
     fontWeight: 'bold',
@@ -331,17 +336,14 @@ marginBottom: 5
   button: {
   borderWidth: 1,
   borderColor: 'black',
+  backgroundColor: '#233D4D',
+  borderRadius: 10,
   width: 150,
   left: 110,
   bottom: 45
   },
   stopInfo: {
     marginLeft: 45
-  },
-
-  londonImage :{
-    width: 275, 
-    height: 175,
   }
 
 })
