@@ -3,12 +3,12 @@ import { Text, View, StyleSheet } from 'react-native'
 
 const Header = (props) => {
    return (
-      <View>
+      <View style = {styles.container}>
          <Text style = {styles.header}>
-            {props.header}
+         Welcome to Dreams Destination!         
          </Text>
          <Text style = {styles.subHeader}>
-         {props.subHeader}
+         Find the Destination of your Dreams!
          </Text> 
       </View>
    )
@@ -16,6 +16,10 @@ const Header = (props) => {
 export default Header
 
 const styles = StyleSheet.create({
+  container:{
+    borderBottomWidth: 1,
+    borderBottomColor: '#f4c842'
+  },
   header: {
     marginTop: 20,
     textAlign: 'center',

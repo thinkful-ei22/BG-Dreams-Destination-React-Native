@@ -2,10 +2,13 @@ import React, { Component } from 'react'
 import { Text, View, Image, StyleSheet, ScrollView } from 'react-native'
 import Header from './Header'
 import Footer from './Footer'
-import List from './List.js'
+import Navigation from './Navigation'
 import SignUp from './SignUp'
 import PickerExample from './PickerExample'
 import FeaturedDestinations from './featured-destinations'
+import AllDestinations from './all-destinations'
+import Events from './events'
+import FeaturedEvent from './featured-events'
 
 class Home extends Component {
   state = {
@@ -80,12 +83,17 @@ logIn = () => {
   })
 }
 }
+
+
  
    checkLoggedIn = () =>{
     let returnComponent;
     if (this.state.loggedIn){
-      returnComponent =     <ScrollView>
-      <List />
+      returnComponent =     
+      <ScrollView>
+        <Header />
+      <Navigation />
+      <FeaturedEvent />
       <FeaturedDestinations />
       </ScrollView>
      }
@@ -104,9 +112,7 @@ logIn = () => {
       render(){
   return (
       <View>
-      <View style = {styles.container1}>
-    <Header header = {this.state.header} subHeader= {this.state.subHeader} />
-    </View>
+    {/* <Header/> */}
     {this.checkLoggedIn()}
     <Footer footer = {this.state.footer} />
     </View>
@@ -116,11 +122,6 @@ logIn = () => {
 
 export default Home
 
-const styles = StyleSheet.create ({
-  container1: {
-     borderBottomWidth: 1,
-     borderBottomColor: '#f4c842'
-  }
-})
+
 
 

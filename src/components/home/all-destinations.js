@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
-import { Text, View, Image, Button, StyleSheet} from 'react-native'
+import { Text, View, Image,TextInput, Button, StyleSheet, ScrollView} from 'react-native'
+import Navigation from './Navigation'
+import Header from './Header'
+class AllDestinations extends Component{
 
+  state = {
+    searchInput: ''
+  }
+   handlePress = () => false
 
-const FeaturedDestinations = (props) => {
-  const handlePress = () => false
-
-const startLocation =
+startLocation =
 {
   city: 'Atlanta',
   state: 'GA',
@@ -13,11 +17,12 @@ const startLocation =
   code: 'ATL'
 }
 
-destinations = 
+ destinations = 
 [
   {
-    key: 0,
+
     city: 'Mumbai',
+    fullState: '',
     state: 'MH',
     country: 'India',
     countryCode: 'IN',
@@ -30,8 +35,8 @@ destinations =
     stops: 1
   },
   {
-    key: 1,
     city: 'London',
+    fullState:'',
     state: '',
     country: 'England',
     countryCode: 'ENG',
@@ -44,8 +49,8 @@ destinations =
     stops: 2
   },
   {
-    key: 2,
     city: 'Dubai',
+    fullState:'',
     state: '',
     country: 'United Arab Emirates',
     countryCode: 'UAE',
@@ -58,8 +63,8 @@ destinations =
     stops: 1
   },
   {
-    key: 3,
     city: 'Madrid',
+    fullState:'',
     state: '',
     country: 'Spain',
     countryCode: 'ES',
@@ -72,8 +77,8 @@ destinations =
     stops: 1
   },
   {
-    key: 4,
     city: 'Hong Kong',
+    fullState:'',
     state: '',
     country: 'China',
     countryCode: 'CN',
@@ -86,8 +91,8 @@ destinations =
     stops: 2
   },
   {
-    key: 5,
     city: 'Paris',
+    fullState:'',
     state: '',
     country: 'France',
     countryCode: 'FR',
@@ -100,7 +105,6 @@ destinations =
     stops: 2
   },
   {
-    key: 6,
     city: 'Orlando',
     fullState:'Florida',
     state: 'FL',
@@ -115,7 +119,6 @@ destinations =
     stops: 0
   },
   {
-    key: 7,
     city: 'Las Vegas',
     fullState:'Nevada',
     state: 'NV',
@@ -130,7 +133,6 @@ destinations =
     stops: 1
   },
   {
-    key: 8,
     city: 'Los Angeles',
     fullState:'California',
     state: 'CA',
@@ -145,151 +147,128 @@ destinations =
     stops: 1
   }
 
+
 ]
 
-const stateOrCountry = (index) => {
+
+
+ stateOrCountry = (locations, index) => {
 let location;
 
-if (destinations[index].state === ''){
-  location = destinations[index].countryCode
+if (locations[index].state === ''){
+  location = locations[index].countryCode
 }
 else {
-  location = destinations[index].state
+  location = locations[index].state
 }
 return location
 }
-const stopOrStops = (index) => {
+
+stopOrStops = (locations, index) => {
   let stopInfo;
-  if (destinations[index].stops > 1){
+  if (locations[index].stops === 0){
     stopInfo = <Text style ={styles.stopInfo}>
-      {destinations[index].stops} stops
+    Nonstop
+    </Text>
+  }
+  else if (locations[index].stops > 1){
+    stopInfo = <Text style ={styles.stopInfo}>
+      {locations[index].stops} stops
     </Text>
   }
   else {
     stopInfo = <Text style ={styles.stopInfo}>
-    {destinations[index].stops} stop
+    {locations[index].stops} stop
   </Text>
   }
 return stopInfo
 }
 
-const displayFeatured = () => {
-let featuredDestinations =[];
-let firstIndex = Math.floor(Math.random() *destinations.length);
 
-let secondIndex = Math.floor(Math.random() * destinations.length);
+searchDestinations = (input) => {
 
-while (secondIndex === firstIndex){
-secondIndex = Math.floor(Math.random() * destinations.length);
+  console.log(input + '<<input')
+
+  filteredDestinations = this.destinations
+
+  if (input !== ''){
+  let filteredCityDestinations= this.destinations.filter(destination => destination.city.startsWith(input))
+
+  let filteredStateDestinations= this.destinations.filter(destination => destination.fullState.startsWith(input))
+
+  let filteredCountryDestinations= this.destinations.filter(destination => destination.country.startsWith(input))
+
+
+
+  filteredDestinations = filteredCityDestinations.concat(filteredCountryDestinations, filteredStateDestinations)
 }
 
-let thirdIndex = Math.floor(Math.random() * destinations.length);
-
-while (thirdIndex === firstIndex || thirdIndex === secondIndex){
-thirdIndex = Math.floor(Math.random() * destinations.length);
+return filteredDestinations
 }
 
-let firstDestination = 
-<View style ={styles.destinationContainer} key = {destinations[firstIndex].key}>
-  <Image source = {{ uri: destinations[firstIndex].image}}
-  style = {styles.destinationImage} />
-  <View style ={styles.tripDescription}>
-  <Text style ={styles.descriptionHeader}>
-  {destinations[firstIndex].city}, {stateOrCountry(firstIndex)}
-  </Text>
-  <Text style = {styles.descriptionText}>
-  {startLocation.code} {startLocation.city} to {destinations[firstIndex].code} {destinations[firstIndex].city}{"\n"}
-  {destinations[firstIndex].startDate} - {destinations[firstIndex].returnDate} • {destinations[firstIndex].vacationDays} days
-  </Text>
-  <Text style ={styles.price}>
-  ${destinations[firstIndex].lowestPrice}+
-  </Text>
-  {stopOrStops(firstIndex)}
 
-  <View style = {styles.button}>
-  <Button  onPress = {handlePress}
-         title = "FIND FLIGHTS"
-         color = "green"
-      />
-      </View>
-  </View>
-  </View>;
 
-featuredDestinations.push(firstDestination);
 
-let secondDestination = 
-<View style ={styles.destinationContainer} key = {destinations[secondIndex].key} >
-  <Image source = {{ uri: destinations[secondIndex].image}}
-  style = {styles.destinationImage} />
-  <View style ={styles.tripDescription}>
-  <Text style ={styles.descriptionHeader}>
-  {destinations[secondIndex].city}, {stateOrCountry(secondIndex)}
-  </Text>
-  <Text style = {styles.descriptionText}>
-  {startLocation.code} {startLocation.city} to {destinations[secondIndex].code} {destinations[secondIndex].city}{"\n"}
-  {destinations[secondIndex].startDate} - {destinations[secondIndex].returnDate} • {destinations[secondIndex].vacationDays} days
-  </Text>
-  <Text style ={styles.price}>
-  ${destinations[secondIndex].lowestPrice}+
-  </Text>
-  {stopOrStops(secondIndex)}
 
-  <View style = {styles.button}>
-  <Button  onPress = {handlePress}
-         title = "FIND FLIGHTS"
-         color = "green"
-      />
-      </View>
-  </View>
-  </View>;
-
-featuredDestinations.push(secondDestination);
-
-let thirdDestination = 
-<View style ={styles.destinationContainer} key = {destinations[thirdIndex].key}>
-  <Image source = {{ uri: destinations[thirdIndex].image}}
-  style = {styles.destinationImage} />
-  <View style ={styles.tripDescription}>
-  <Text style ={styles.descriptionHeader}>
-  {destinations[thirdIndex].city}, {stateOrCountry(thirdIndex)}
-  </Text>
-  <Text style = {styles.descriptionText}>
-  {startLocation.code} {startLocation.city} to {destinations[thirdIndex].code} {destinations[thirdIndex].city}{"\n"}
-  {destinations[thirdIndex].startDate} - {destinations[thirdIndex].returnDate} • {destinations[thirdIndex].vacationDays} days
-  </Text>
-  <Text style ={styles.price}>
-  ${destinations[thirdIndex].lowestPrice}+
-  </Text>
-  {stopOrStops(thirdIndex)}
-
-  <View style = {styles.button}>
-  <Button  onPress = {handlePress}
-         title = "FIND FLIGHTS"
-         color = "green"
-      />
-      </View>
-  </View>
-  </View>;
-featuredDestinations.push(thirdDestination);
-
-return featuredDestinations
-}
-
+render(){
+  viewAll = this.searchDestinations(this.state.searchInput).map((destination, index) => {
+    console.log(destination)
+      return (
+    <View style = {styles.countryContainer} key ={index}>
+    <Image source = {{uri: destination.image}} style = {styles.tripImage}/>
+    <View style = {styles.tripDescription}>
+    <Text style ={styles.descriptionHeader}>
+      {destination.city}, {this.stateOrCountry(this.searchDestinations(this.state.searchInput),index)}
+      </Text>
+      <Text style = {styles.descriptionText}>
+      {this.startLocation.code} {this.startLocation.city} to {destination.code} {destination.city}{"\n"}
+      {destination.startDate} - {destination.returnDate} • {destination.vacationDays} days
+      </Text>
+      <Text style ={styles.price}>
+      ${destination.lowestPrice}+
+      </Text>
+      {this.stopOrStops(this.searchDestinations(this.state.searchInput),index)}
+      <View style = {styles.button}>
+      <Button  onPress = {this.handlePress}
+             title = "FIND FLIGHTS"
+             color = "green"
+          />
+          </View>
+    </View>
+    </View>
+      )
+    }) 
 return (
-<View>
+<ScrollView>
+<Header/>
+<Navigation />
   <View style = {styles.containerMain}>
+  <Text>
+    Search 
+  </Text>
+  <TextInput style = {styles.input}
+  underlineColorAndroid = "transparent"
+  placeholder = "Search by city, state, or country"
+  placeholderTextColor = "#9a73ef"
+  autoCapitalize = "none"
+  onChangeText = {(text) => {
+    console.log(text + ' <<<text')
+    this.setState({searchInput: text}, function (){
+      this.searchDestinations(this.state.searchInput)
+    })}
+   } />
+
 <Text style = {styles.header}>
-Popular Destinations
+View Destinations
 </Text>
-
-{displayFeatured()}
-
+{viewAll}
 </View>
-</View>
+</ScrollView>
 )
 }
+}
 
-export default FeaturedDestinations
+export default AllDestinations
 
 
 const styles = StyleSheet.create ({
@@ -297,7 +276,7 @@ const styles = StyleSheet.create ({
     flexDirection: 'column',
       justifyContent: 'flex-start',
       alignItems: 'center',
-      height: 1300,
+      height: 3300,
   },
   header: {
     marginTop: 20,
@@ -306,10 +285,17 @@ const styles = StyleSheet.create ({
     fontWeight: 'bold',
     fontSize: 20
   },
-  destinationContainer: {
+  input: {
+    margin: 15,
+    height: 40,
+    borderColor: '#7a42f4',
+    borderWidth: 1,
+    width: 300
+ },
+  countryContainer: {
     marginTop: 10
   },
-  destinationImage :{
+  tripImage:{
     width: 275, 
     height: 175,
   },
@@ -346,9 +332,6 @@ const styles = StyleSheet.create ({
     marginLeft: 45
   },
 
-  londonContainer: {
-    marginTop: 10
-  },
   londonImage :{
     width: 275, 
     height: 175,
