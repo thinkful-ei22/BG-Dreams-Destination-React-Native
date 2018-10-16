@@ -5,7 +5,7 @@
 <h4 align="center">Click <a href="https://expo.io/@bgraham452/dreams-destination-v2" target="_blank">Here</a> for the demo!
 <h1 align="center"></h4>
   <br>
-  <img src="DD-Home.png" alt="App-Wireframe">
+  <img src="DD-Home.png" alt="App-Screenshot" width="160">
 </h1>
 
 
