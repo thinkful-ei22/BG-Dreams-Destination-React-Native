@@ -4,13 +4,11 @@
 
 <h4 align="center">Click <a href="https://expo.io/@bgraham452/dreams-destination-v2" target="_blank">Here</a> for the demo!
 
-<h1 align="center"></h4>
-  <br>
-  <img src="https://github.com/thinkful-ei22/BG-Dreams-Destination-React-Native/blob/master/screenshots/Home.png" alt="Home-Screenshot" width="160" />
-  <img src="https://github.com/thinkful-ei22/BG-Dreams-Destination-React-Native/blob/master/screenshots/Destinations.png" alt="Destinations-Screenshot" width="160" />
-   <img src="https://github.com/thinkful-ei22/BG-Dreams-Destination-React-Native/blob/master/screenshots/Events.png" alt="Events-Screenshot" width="160" />
-  
-</h1>
+
+Home            |  Desinations | Events
+:-------------------------:|:-------------------------:|:-------------------------:
+![](https://github.com/thinkful-ei22/BG-Dreams-Destination-React-Native/blob/master/screenshots/Home.png)  |  ![](https://github.com/thinkful-ei22/BG-Dreams-Destination-React-Native/blob/master/screenshots/Destinations.png) |  ![](https://github.com/thinkful-ei22/BG-Dreams-Destination-React-Native/blob/master/screenshots/Events.png)
+
 
 
 <p align="center">Looking for the travel destination of your dreams? This is the app for you! </p>
