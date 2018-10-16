@@ -2,7 +2,7 @@
 
 <h4 align="center">A react-native app designed to give users personalized travel destinations.</h4>
 
-<h4 align="center">Click <a href="https://expo.io/@bgraham452/dreams-destination-v2" target="_blank">Here</a> for the demo!
+<h4 align="center">Click <a href="https://expo.io/@bgraham452/dreams-destination-v2" target="_blank">Here</a> for the demo! <br />
 
 
 Home            |  Desinations | Events
